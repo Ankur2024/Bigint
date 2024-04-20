@@ -1,38 +1,6 @@
 #include <bits/stdc++.h>
 #include "BigInt.h"
 using namespace std;
-
-BigInt::BigInt(const BigInt & a){
-    digits = a.digits;
-}
-
-BigInt::BigInt(string & s){
-    digits = "";
-    int n = s.size();
-    for (int i = n - 1; i >= 0;i--){
-        if(!isdigit(s[i]))
-            throw("ERROR");
-        digits.push_back(s[i] - '0');
-    }
-}
-BigInt::BigInt(unsigned long long nr){
-    do{
-        digits.push_back(nr % 10);
-        nr /= 10;
-    } while (nr);
-}
-BigInt::BigInt(const char *s){
-    digits = "";
-    for (int i = strlen(s) - 1; i >= 0;i--)
-    {
-        if(!isdigit(s[i]))
-            throw("ERROR");
-        digits.push_back(s[i] - '0');
-    }
-}
-BigInt::BigInt(BigInt & a){
-    digits = a.digits;
-}
  
 bool Null(const BigInt& a){
     if(a.digits.size() == 1 && a.digits[0] == 0)
@@ -354,20 +322,3 @@ BigInt Factorial(int n){
     return f;
 }
  
-istream &operator>>(istream &in,BigInt&a){
-    string s;
-    in >> s;
-    int n = s.size();
-    for (int i = n - 1; i >= 0;i--){
-        if(!isdigit(s[i]))
-            throw("INVALID NUMBER");
-        a.digits[n - i - 1] = s[i];
-    }
-    return in;
-}
- 
-ostream &operator<<(ostream &out,const BigInt &a){
-    for (int i = a.digits.size() - 1; i >= 0;i--)
-        cout << (short)a.digits[i];
-    return cout;
-}

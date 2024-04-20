@@ -10,8 +10,7 @@ public:
  
     //Constructors:
     BigInt(unsigned long long n = 0);
-    BigInt(string &);
-    BigInt(const char *);
+    BigInt(const string &);
     BigInt(BigInt &);
     BigInt(const BigInt &);
  
