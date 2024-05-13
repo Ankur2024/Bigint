@@ -58,7 +58,7 @@ public:
  
     //Power Function
     friend BigInt &operator^=(BigInt &,const BigInt &);
-    friend BigInt operator^(BigInt &, const BigInt &);
+    friend BigInt &operator^(BigInt &, const BigInt &);
      
     //Square Root Function
     friend BigInt sqrt(BigInt &a);
